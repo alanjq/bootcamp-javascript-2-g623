@@ -1,0 +1,17 @@
+{
+  "name": "tema-1",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Alan Jimenez <alanjq@outlook.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/alanjq/bootcamp-javascript-2-g623",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
