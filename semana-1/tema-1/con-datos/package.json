@@ -1,0 +1,25 @@
+{
+  "name": "tema-1",
+  "version": "3.0.0",
+  "description": "Ejemplo de npm init",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alanjq/bootcamp-javascript-2-g623.git"
+  },
+  "keywords": [
+    "javascript",
+    "bootcamp",
+    "ejemplo",
+    "npm"
+  ],
+  "author": "alan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alanjq/bootcamp-javascript-2-g623/issues"
+  },
+  "homepage": "https://github.com/alanjq/bootcamp-javascript-2-g623#readme"
+}
