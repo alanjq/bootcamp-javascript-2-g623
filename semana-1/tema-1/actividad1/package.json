@@ -1,0 +1,20 @@
+{
+  "name": "actividad-1",
+  "version": "1.0.0",
+  "description": "Actividad 1 con React",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "eslint": "^8.46.0",
+    "json-server": "^0.17.3",
+    "moment": "^2.29.4",
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.9.3"
+  }
+}
