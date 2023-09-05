@@ -1,3 +1,5 @@
+import generateMarkup from "./markup";
+
 const recipeContainer = document.querySelector('.recipe');
 
 const timeout = function (s) {
@@ -34,10 +36,8 @@ const showRecipe2 = (api_url) => fetch(api_url)
   .catch((error) => error)
 //#endregion / Avance de proyecto 1. Inciso 15
 
-showRecipe(urlapi).then((r) => {
-  console.log('response', r);
+showRecipe(urlapi).then(({recipe}) => {
+  recipeContainer.innerHTML = generateMarkup(recipe)
+  console.log('response', recipe);
 })
 
-showRecipe2(urlapi).then((r) => {
-  console.log('response 2', r);
-})
