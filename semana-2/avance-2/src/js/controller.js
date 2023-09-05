@@ -16,31 +16,35 @@ const timeout = function (s) {
 ///////////////////////////////////////
 
 //#region Avance de proyecto 1. Inciso 15
-const urlapi = "https://forkify-api.herokuapp.com/api/v2/recipes/5ed6604591c37cdc054bc886"
 
 // La función que pide el PDF es similar a la siguiente
-async function showRecipe(api_url) {
+async function showRecipe() {
   // Inciso 23 (d) - Mostrar el spinner antes de cargar el contenido
   renderSpinner(recipeContainer)
-  return await fetch(api_url)
-    .then((response) => response.ok ? response.json() : Promise.reject(response.statusText))
+  // Formar la URL usando el hash
+  let hash = location.hash.slice(1)
+  const urlapi = `https://forkify-api.herokuapp.com/api/v2/recipes/${hash}`
+  return await fetch(urlapi)
+    .then((response) => response.ok ? response.json() : Promise.reject('Recipe not found.'))
     // Inciso J
-    .then(response => response.status === 'success' ? response.data : Promise.reject(response))
+    // .then(response => response.status === 'success' ? response.data : Promise.reject(response.message))
+    .then(response=> response.status === 'success' ? response.data : Promise.reject(response.message))
+    // Avance 2
+    .then(({ recipe }) => {
+        recipeContainer.innerHTML = generateMarkup(recipe)
+    })
     // Inciso D
-    .catch((error) => error)
+    .catch((error) => {
+      recipeContainer.innerHTML = error
+    })
 }
 
-// Una alternativa puede ser la siguiente:
-const showRecipe2 = (api_url) => fetch(api_url)
-  .then((response) => response.ok ? response.json() : Promise.reject(response.statusText))
-  // Inciso J
-  .then(response => response.status === 'success' ? response.data : Promise.reject(response))
-  // Inciso D
-  .catch((error) => error)
 //#endregion / Avance de proyecto 1. Inciso 15
 
-showRecipe(urlapi).then(({recipe}) => {
-  recipeContainer.innerHTML = generateMarkup(recipe)
-  console.log('response', recipe);
-})
+// showRecipe(urlapi).then(({recipe}) => {
+//   recipeContainer.innerHTML = generateMarkup(recipe)
+//   console.log('response', recipe);
+// })
 
+window.addEventListener('hashchange', showRecipe)
+// ID: "5ed6604591c37cdc054bc886"
