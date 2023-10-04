@@ -1,5 +1,5 @@
 import generateMarkup from "./markup";
-import renderSpinner from './renderSpinner'
+// import renderSpinner from './renderSpinner'
 
 const recipeContainer = document.querySelector('.recipe');
 
